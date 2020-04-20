@@ -36,7 +36,7 @@ with open("./src/Downloads/table_data/corona_t.csv", "w", encoding='utf-8') as f
         for cell in i.findAll(['td', 'th']):
             row.append(cell.get_text().replace('\u3000','').replace('：',':').replace(' ', ''))
         writer.writerow(row)
-table_df = pd.read_csv('./src/downloads/table_data/corona_t.csv')
+table_df = pd.read_csv('./src/Downloads/table_data/corona_t.csv')
 table_df_dict = table_df.to_dict('index')
 data1 = [table_df_dict.get(i) for i in range(len(table_df))]
 
@@ -86,7 +86,7 @@ df['職業'] = job
 df['陽性判明日'] = foud_date
 
 patients_df = df.sort_values('公表日').reset_index(drop=True)
-patients_df.to_csv('./src/downloads/patients_data/patients.csv', index=False)
+patients_df.to_csv('./src/Downloads/patients_data/patients.csv', index=False)
 patients_df_dict = patients_df.to_dict('index')
 data2 = [patients_df_dict.get(i) for i in range(len(patients_df_dict))]
     
@@ -124,16 +124,16 @@ date_column, subtotal_column = create_patients_column(
     this_year, this_month, this_day)
 x_month_data = create_x_month_data(foud_date, date_column, subtotal_column)
 x_month_data.to_csv(
-    './src/downloads/each_data/{}_{}.csv'.format(this_year, this_month), index=False)
+    './src/Downloads/each_data/{}_{}.csv'.format(this_year, this_month), index=False)
 
-csv_files = glob.glob('./src/downloads/each_data/*.csv')
+csv_files = glob.glob('./src/Downloads/each_data/*.csv')
 each_csv = []
 for i in csv_files:
     each_csv.append(pd.read_csv(i))
 sum_x_month_data = pd.concat(each_csv).reset_index(drop=True)
 
 patients_summary_df = sum_x_month_data.sort_values("日付").reset_index(drop=True)
-patients_summary_df.to_csv("./src/downloads/final_data/total.csv", index=False)
+patients_summary_df.to_csv("./src/Downloads/final_data/total.csv", index=False)
 patients_summary_df_dict = patients_summary_df.to_dict('index')
 data3 = [patients_summary_df_dict.get(i)for i in range(len(patients_summary_df))]
 
