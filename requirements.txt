@@ -1,4 +1,4 @@
-eedparser==5.2.1
+feedparser==5.2.1
 asgiref==3.2.3
 beautifulsoup4==4.8.2
 certifi==2018.4.16
