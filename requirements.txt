@@ -4,7 +4,7 @@ beautifulsoup4==4.8.2
 certifi==2018.4.16
 chardet==3.0.4
 idna==2.6
-numpy==1.15.4
+numpy==1.18.2
 pandas==1.0.3
 python-dateutil==2.7.5
 pytz==2019.3
