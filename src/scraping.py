@@ -147,7 +147,7 @@ data_json = {
     },
     "patients_summary": {
         "date": update_at,
-        "data": data2
+        "data": data3
     }
 }
 with open('./src/data.json', 'w') as f:
