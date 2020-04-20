@@ -15,7 +15,7 @@ constantly==15.1.0
 cryptography==2.8
 cycler==0.10.0
 daphne==2.4.0
-Django==3.0
+Django==3.0.3
 feedparser==5.2.1
 Flask==1.1.1
 hyperlink==19.0.0
