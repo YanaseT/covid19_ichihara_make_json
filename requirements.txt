@@ -56,7 +56,7 @@ tabula==1.0.5
 toposort==1.5
 Twisted==19.10.0
 txaio==18.8.1
-urllib3==1.22
+urllib3==1.24.2
 websocket-client==0.44.0
 Werkzeug==0.16.0
 wrapt==1.10.11
