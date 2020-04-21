@@ -51,6 +51,6 @@ jobs:
             https://api.github.com/repos/YanaseT/covid19-ichihara/dispatches --data '{"event_type": "build_application"}' \
           || true
     - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
