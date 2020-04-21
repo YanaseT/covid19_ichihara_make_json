@@ -36,3 +36,21 @@ jobs:
         TZ: Asia/Tokyo
       run:
         python src/scraping.py
+    - name: Commit files
+      env:
+        TZ: Asia/Tokyo
+      run: |
+        TODAY=`date "+%Y/%m/%d %H:%M"`
+        git config --local user.email "yanaandtomo@gmail.com"
+        git config --local user.name "YanaseT"
+        git status | grep modified && git add src/ && git commit -v -m "[Bot] データ更新 ${TODAY}" \
+          && curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.everest-preview+json" \
+            -H "Content-Type: application/json" \
+            https://api.github.com/repos/YanaseT/covid19-ichihara/dispatches --data '{"event_type": "build_application"}' \
+          || true
+    - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
