@@ -41,7 +41,7 @@ jobs:
         TZ: Asia/Tokyo
       run: |
         TODAY=`date "+%Y/%m/%d %H:%M"`
-        git config --local user.email "yanaandtomo@gmail.com"
+        git config --local user.email "63353429YanaseT@users.noreply.github.com"
         git config --local user.name "YanaseT"
         git status | grep modified && git add src/ && git commit -v -m "[Bot] データ更新 ${TODAY}" \
           && curl -X POST \
