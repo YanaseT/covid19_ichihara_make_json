@@ -99,13 +99,13 @@ def create_patients_column(this_year, this_month, this_day):
     return date_column, subtotal_column
 
 # pacients_summary_DataFrameを作成する関数
-def create_x_month_data(found_date, date_column, subtotal_column):
+def create_x_month_data(open_date, date_column, subtotal_column):
     # 空のデータフレームの作成
     progress_map = {'日付': date_column, '小計': subtotal_column}
     df = pd.DataFrame(progress_map)
 
     # 条件にマッチした日にデータを挿入
-    infect_date_count = collections.Counter(foud_date)
+    infect_date_count = collections.Counter(open_date)
     for num, i in enumerate(df.iloc[0:, 0]):
         for j in infect_date_count.keys():
             if j in str(i):
@@ -122,7 +122,7 @@ this_minute = today.minute
 
 date_column, subtotal_column = create_patients_column(
     this_year, this_month, this_day)
-x_month_data = create_x_month_data(foud_date, date_column, subtotal_column)
+x_month_data = create_x_month_data(open_date, date_column, subtotal_column)
 x_month_data.to_csv(
     './src/Downloads/each_data/{}_{}.csv'.format(this_year, this_month), index=False)
 
