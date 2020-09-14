@@ -65,8 +65,12 @@ for i in data1:
     residence.append(residence_text)
     #職業
     m=re.search(r'職業:(.+?)■',i['感染者の概要'])
-    job_text=m.group(1)
-    job.append(job_text)
+    if m:
+        job_text=m.group(1)
+        job.append(job_text)
+    else:
+        job.append('未公表')
+
     #陽性判明日
     m=re.search(r'([0-9]+月[0-9]+日)検査の結果、陽性と判明',i['感染者の概要'])
     found_date_num=m.group(1)
