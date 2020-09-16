@@ -26,7 +26,7 @@ def data_shaping(date):
     return date
 
 #テーブルを取得、保存
-table = soup.findAll("table",{"class":"table01"})[0]
+table = soup.findAll("table",{"class":"table01"})[1]
 tr = table.findAll("tr")
 
 with open("./src/Downloads/table_data/corona_t.csv", "w", encoding='utf-8') as file:
