@@ -51,6 +51,9 @@ sex = []
 job = []
 
 for i in data1:
+    if i['事例'] =='149例目':
+        continue
+
     #年代
     m=re.search(r'年代:(.+?)■',i['感染者の概要'])
     age_num=m.group(1)
