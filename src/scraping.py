@@ -53,7 +53,7 @@ job = []
 for i in data1:
     if i['事例'] =='149例目':
         continue
-    elif i['事例'] =='245例目':
+    elif i['事例'] =='245例目（無症状33例目）':
         continue
 
     #年代
