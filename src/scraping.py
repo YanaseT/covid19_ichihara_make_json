@@ -84,11 +84,11 @@ for i in data1:
     #陽性判明日
     #m=re.search(r'([0-9]+月[0-9]+日)検査の結果、陽性と判明',i['感染者の概要'])
     #found_date_num=m.group(1)
-    found_date_num= i['職業(種別)']
+    found_date_num= i['検査確定日']
     found_date_num=data_shaping(found_date_num)
     foud_date.append(found_date_num)
     #公表日
-    open_date_num=i['検査確定日']
+    open_date_num=i['発表日']
     open_date_num=data_shaping(open_date_num)
     open_date.append(open_date_num)
 
