@@ -57,32 +57,38 @@ for i in data1:
         continue
 
     #年代
-    m=re.search(r'年代:(.+?)■',i['感染者の概要'])
-    age_num=m.group(1)
+    #m=re.search(r'年代:(.+?)■',i['感染者の概要'])
+    #age_num=m.group(1)
+    age_num=i['年代']
     age.append(age_num)
     #性別
-    m=re.search(r'性別:(.+?)■',i['感染者の概要'])
-    sex_text=m.group(1)
+    #m=re.search(r'性別:(.+?)■',i['感染者の概要'])
+    #sex_text=m.group(1)
+    sex_text=i['性別']
     sex.append(sex_text)
     #居住地
-    m=re.search(r'居住地:(.+?)■',i['感染者の概要'])
-    residence_text=m.group(1)
+    #m=re.search(r'居住地:(.+?)■',i['感染者の概要'])
+    #residence_text=m.group(1)
+    residence_text= '-'
     residence.append(residence_text)
     #職業
-    m=re.search(r'職業:(.+?)■',i['感染者の概要'])
+    #m=re.search(r'職業:(.+?)■',i['感染者の概要'])
+    m=i['職業(種別)']
     if m:
-        job_text=m.group(1)
+        #job_text=m.group(1)
+        job_text=m
         job.append(job_text)
     else:
         job.append('未公表')
 
     #陽性判明日
-    m=re.search(r'([0-9]+月[0-9]+日)検査の結果、陽性と判明',i['感染者の概要'])
-    found_date_num=m.group(1)
+    #m=re.search(r'([0-9]+月[0-9]+日)検査の結果、陽性と判明',i['感染者の概要'])
+    #found_date_num=m.group(1)
+    found_date_num= i['職業(種別)']
     found_date_num=data_shaping(found_date_num)
     foud_date.append(found_date_num)
     #公表日
-    open_date_num=i['発表日']
+    open_date_num=i['検査確定日']
     open_date_num=data_shaping(open_date_num)
     open_date.append(open_date_num)
 
